@@ -1,17 +1,25 @@
-    - gcc-c++
-    - glpk
-    - libcurl-devel
-    - pandoc
+    [x] pandoc
+    [x] r 
+    [x] r-base
+    [x] r-rjava
+    [ ] r-boruta
+    [x] pandas
+    [x] jupyter
+    [x] r-rserve
+    [x] gcc-c++
+    [x] libcurl-devel
+    [x] libxml2-devel
+    [x] libpng-devel
+    [x] r-rcaret
+    [x] tweepy
+    - glpk (requires epel)
     - java-1.8.0-openjdk-devel
     - postgresql-devel
-    - R
-    - R-core
+    - java-1.8.0-openjdk-devel
+    - postgresql-devel
     - R-devel
-    - R-java
     - R-java-devel
-    - libpng-devel
     - mesa-libGLU-devel
-    - libxml2-devel
     - texlive
     - texlive-latex
     - texlive-xetex
@@ -21,15 +29,7 @@
     - texlive-collection-xetex
     - texlive-adjustbox
     - texlive-upquote
-    - ipython[notebook]
-    - pandas
-    - jupyter
-    - ipywidgets
-    - tweepy
 
-   note - binr
-    - Boruta
-    - caret
     - ClickClust
     - clickstream
     - doParallel
@@ -49,4 +49,3 @@
     - wordcloud
     - xgboost
     - devtools
-    - Rserve

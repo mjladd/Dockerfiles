@@ -15,7 +15,11 @@ RUN yum update  -y  && \
         openssl-devel  \
         xz-devel \
         gcc \
+        libcurl-devel \
+        libpng-devel \
         make \
+        libxml2-devel \
+        gcc-c++ \
         unzip && \
     yum clean all && \
     rm -fr  /var/cache/yum
@@ -28,7 +32,11 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
  -o /tmp/Miniconda.sh 
 RUN  /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
 RUN  conda update conda  -y && \
-  conda install r numpy matplotlib jupyter 
+  conda install r r-base r-rjava numpy matplotlib jupyter pandoc pandas \
+       r-rserve r-caret
+
+RUN conda install -c conda-forge tweepy
+RUN conda install -c r r-caret
 
 # TODO: Need to flesh out conda packages to be installed
   #conda install r numpy matplotlib jupyter r-devel r-java r-java-devel texlive
