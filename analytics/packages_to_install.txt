@@ -1,36 +1,24 @@
+    - ggplot2
+    - tm
+    - dplyr
+    - xgboost
+    - SnowballC
+    - Kernlab
     - glpk (requires epel)
-    - java-1.8.0-openjdk-devel
-    - postgresql-devel
     - java-1.8.0-openjdk-devel
     - postgresql-devel
     - R-devel
     - R-java-devel
     - mesa-libGLU-devel
-    - texlive
-    - texlive-latex
-    - texlive-xetex
-    - texlive-collection-latex
-    - texlive-collection-latexrecommended
-    - texlive-xetex-def
-    - texlive-collection-xetex
-    - texlive-adjustbox
-    - texlive-upquote
     - ClickClust
     - clickstream
     - doParallel
-    - dplyr
     - dummies
-    - ggplot2
     - Kernlab
     - NbClust
-    - party
     - pROC
     - ROCR
     - RTextTools
     - smbinning
-    - SnowballC
     - stepPlr
-    - tm
-    - wordcloud
-    - xgboost
     - devtools

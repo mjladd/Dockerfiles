@@ -43,13 +43,11 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 RUN  /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
 RUN  conda update conda  -y && \
   conda install r r-base r-rjava numpy matplotlib jupyter pandoc pandas \
-       r-rserve
+       r-rserve r-ggplot2
 
-RUN conda install -c conda-forge tweepy
-RUN conda install -c r r-caret
+RUN conda install -c conda-forge tweepy wordcloud r-party xgboost
+RUN conda install -c r r-caret r-snowballc r-dplyr r-tm r-kernlab
 
-# TODO: Need to flesh out conda packages to be installed
-  #conda install r-devel r-java r-java-devel texlive
 
 
 
