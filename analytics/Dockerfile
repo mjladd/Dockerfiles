@@ -20,7 +20,17 @@ RUN yum update  -y  && \
         make \
         libxml2-devel \
         gcc-c++ \
-        unzip && \
+        unzip  \
+        texlive \
+        texlive-latex \
+        texlive-xetex \
+        texlive-collection-latex \
+        texlive-collection-latexrecommended \
+        texlive-xetex-def \
+        texlive-collection-xetex \
+        texlive-adjustbox \
+        texlive-upquote \
+        epel-release && \
     yum clean all && \
     rm -fr  /var/cache/yum
 
@@ -33,13 +43,13 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 RUN  /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
 RUN  conda update conda  -y && \
   conda install r r-base r-rjava numpy matplotlib jupyter pandoc pandas \
-       r-rserve r-caret
+       r-rserve
 
 RUN conda install -c conda-forge tweepy
 RUN conda install -c r r-caret
 
 # TODO: Need to flesh out conda packages to be installed
-  #conda install r numpy matplotlib jupyter r-devel r-java r-java-devel texlive
+  #conda install r-devel r-java r-java-devel texlive
 
 
 
