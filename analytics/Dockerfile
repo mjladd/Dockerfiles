@@ -6,6 +6,9 @@ FROM centos:7
 # Patch and install deps
 RUN yum update  -y  && \
     yum install -y \
+        epel-release && \
+    yum clean all &&
+    yum install -y \
         git \
         zlib-devel \
         bzip2 \
@@ -30,7 +33,6 @@ RUN yum update  -y  && \
         texlive-collection-xetex \
         texlive-adjustbox \
         texlive-upquote \
-        epel-release && \
     yum clean all && \
     rm -fr  /var/cache/yum
 
@@ -42,13 +44,11 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
  -o /tmp/Miniconda.sh 
 RUN  /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
 RUN  conda update conda  -y && \
-  conda install r r-base r-rjava numpy matplotlib jupyter pandoc pandas \
+  conda install -c  r r-base r-caret r-snowballc r-dpyr r-tm r-kernlab r-rjava numpy matplotlib jupyter pandoc pandas \
        r-rserve r-ggplot2
-
 RUN conda install -c conda-forge tweepy wordcloud r-party xgboost
-RUN conda install -c r r-caret r-snowballc r-dplyr r-tm r-kernlab
 
-
+# r-party conflict with r-drr?
 
 
 
