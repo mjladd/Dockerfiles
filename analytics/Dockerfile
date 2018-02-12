@@ -21,7 +21,7 @@ RUN yum update  -y  && \
         libcurl-devel \
         libpng-devel \
         make \
-        unzip && 
+        unzip \
         mesa-libGLU-devel \
         postgresql-devel \
         libxml2-devel \
@@ -40,16 +40,18 @@ RUN yum update  -y  && \
     rm -fr  /var/cache/yum
 
 
-# Centos7 / Py3 / Jupyter
 
 # install miniconda
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  \
-  -o /tmp/Miniconda.sh &&
-  RUN /bin/sh  /tmp/Miniconda.sh -bfp /usr/local &&
-  RUN conda update conda  -y &&
-  RUN conda install -c r r-base r-caret r-snowballc r-dplyr r-tm r-kernlab \
-      numpy matplotlib jupyter r-devel r-java r-java-devel \ 
-      r-rjava numpy matplotlib jupyter pandoc pandas r-rserve r-ggplot2 
+  -o /tmp/Miniconda.sh 
+RUN /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
+RUN conda update conda  -y 
+RUN conda install conda-build CacheControl
+RUN conda install -c r r-base r-caret r-snowballc r-dplyr r-tm r-kernlab \
+    numpy matplotlib jupyter pandoc pandas r-rserve r-ggplot2 
+RUN conda install -c conda-forge tweepy wordcloud xgboost
+RUN conda skeleton cran boruta && conda build boruta
+RUN conda skeleton NbClust && conda build NbClust
 
-#RUN conda install -c conda-forge tweepy wordcloud r-party xgboost
+# r-drr and r-party conflict
 

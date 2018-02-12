@@ -1,8 +1,6 @@
-    - java-1.8.0-openjdk-devel
-    - R-devel
-    - R-java-devel
-    - ClickClust
+    - NbClust
     - clickstream
+    - ClickClust
     - doParallel
     - dummies
     - NbClust
@@ -12,3 +10,6 @@
     - smbinning
     - stepPlr
     - devtools
+    - binr
+    - party
+    - java-1.8.0-openjdk-devel
