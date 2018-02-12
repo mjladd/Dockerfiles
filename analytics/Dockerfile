@@ -7,7 +7,7 @@ FROM centos:7
 RUN yum update  -y  && \
     yum install -y \
         epel-release && \
-    yum clean all &&
+    yum clean all && \
     yum install -y \
         git \
         zlib-devel \
@@ -21,6 +21,8 @@ RUN yum update  -y  && \
         libcurl-devel \
         libpng-devel \
         make \
+        mesa-libGLU-devel \
+        postgresql-devel \
         libxml2-devel \
         gcc-c++ \
         unzip  \
@@ -43,10 +45,12 @@ RUN yum update  -y  && \
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \ 
  -o /tmp/Miniconda.sh 
 RUN  /bin/sh  /tmp/Miniconda.sh -bfp /usr/local
+
 RUN  conda update conda  -y && \
-  conda install -c  r r-base r-caret r-snowballc r-dpyr r-tm r-kernlab r-rjava numpy matplotlib jupyter pandoc pandas \
-       r-rserve r-ggplot2
-RUN conda install -c conda-forge tweepy wordcloud r-party xgboost
+  conda install -c  r r-base r-caret r-snowballc r-dplyr r-tm r-kernlab \
+  r-rjava numpy matplotlib jupyter pandoc pandas r-rserve r-ggplot2 
+
+#RUN conda install -c conda-forge tweepy wordcloud r-party xgboost
 
 # r-party conflict with r-drr?
 
