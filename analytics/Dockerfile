@@ -4,7 +4,7 @@
 FROM centos:7
 
 RUN yum update  -y &&
-    yum install -y \
+    RUN yum install -y \
         git \
         zlib-devel \
         bzip2 \
@@ -16,7 +16,7 @@ RUN yum update  -y &&
         gcc \
         make \
         unzip && 
-        yum clean all
+    RUN yum clean all
 
 # install pyenv
 #RUN git clone https://github.com/pyenv/pyenv.git  /root/.pyenv &&
@@ -31,50 +31,50 @@ RUN yum update  -y &&
 
 
 # install miniconda
-curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  \
+RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  \
   -o /tmp/Miniconda.sh &&
-  sh  /tmp/Miniconda.sh -bfp /usr/local &&
-  conda update conda  -y &&
-  conda install r numpy matplotlib jupyter r-devel r-java r-java-devel texlive
+  RUN /bin/sh  /tmp/Miniconda.sh -bfp /usr/local &&
+  RUN conda update conda  -y &&
+  RUN conda install r numpy matplotlib jupyter r-devel r-java r-java-devel texlive
 
 
 
 
-RUN pip3 --no-cache-dir install \
-    Pillow \
-    h5py \
-    ipykernel \
-    jupyter \
-    matplotlib \
-    numpy \
-    pandas \
-    scipy \
-    sklearn \
-    cufflinks \
-    ipywidgets \
-    networkx \
-    notebook \
-    plotly \
-    requests \
-    sympy \
-    seaborn \
-    Cython \
-    patsy \
-    cloudpickle \
-    dill \
-    numba \
-    bokeh \
-    vincent \
-    beautifulsoup4 \
-&& python3 -m ipykernel.kernelspec
+# RUN pip3 --no-cache-dir install \
+#     Pillow \
+#     h5py \
+#     ipykernel \
+#     jupyter \
+#     matplotlib \
+#     numpy \
+#     pandas \
+#     scipy \
+#     sklearn \
+#     cufflinks \
+#     ipywidgets \
+#     networkx \
+#     notebook \
+#     plotly \
+#     requests \
+#     sympy \
+#     seaborn \
+#     Cython \
+#     patsy \
+#     cloudpickle \
+#     dill \
+#     numba \
+#     bokeh \
+#     vincent \
+#     beautifulsoup4 \
+# && python3 -m ipykernel.kernelspec
 
 
 
-VOLUME /notebooks
-ENTRYPOINT /usr/local/bin/jupyter-notebook --no-browser --ip=0.0.0.0 --notebook-dir=/notebooks --allow-root  --NotebookApp.token=''
+# VOLUME /notebooks
+# ENTRYPOINT /usr/local/bin/jupyter-notebook --no-browser --ip=0.0.0.0 --notebook-dir=/notebooks --allow-root  --NotebookApp.token=''
 
-# TensorBoard
-EXPOSE 6006
-# IPython
-EXPOSE 8888
+# # TensorBoard
+# EXPOSE 6006
+# # IPython
+# EXPOSE 8888
 
