@@ -50,7 +50,7 @@ RUN conda install conda-build CacheControl
 RUN conda install -c r r-base r-caret r-snowballc r-dplyr r-tm r-kernlab \
     numpy matplotlib jupyter pandoc pandas r-rserve r-ggplot2 
 RUN conda install -c conda-forge tweepy wordcloud xgboost
-RUN conda skeleton cran boruta && conda build boruta
+RUN conda skeleton cran Boruta && conda build Boruta
 RUN conda skeleton NbClust && conda build NbClust
 
 # r-drr and r-party conflict
