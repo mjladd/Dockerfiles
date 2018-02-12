@@ -1,0 +1,14 @@
+    - java-1.8.0-openjdk-devel
+    - R-devel
+    - R-java-devel
+    - ClickClust
+    - clickstream
+    - doParallel
+    - dummies
+    - NbClust
+    - pROC
+    - ROCR
+    - RTextTools
+    - smbinning
+    - stepPlr
+    - devtools
