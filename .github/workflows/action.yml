@@ -4,3 +4,14 @@ with:
     password: ${{ secrets.DOCKER_PASSWORD }}
     repository: mjladd/Dockerfiles
     tags: latest
+
+name: build and push images
+on:
+    push:
+        branches:
+        - master
+        paths:
+        - "*"
+        - "!README.md"
+
+
