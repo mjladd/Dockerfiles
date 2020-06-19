@@ -1,5 +1,0 @@
-todo:
-- [ ] set environmental variables for password
-- [ ] get MD5 to verify download
-- [ ] figure out how BATS tests work
-
