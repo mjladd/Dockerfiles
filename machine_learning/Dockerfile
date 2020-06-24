@@ -68,7 +68,7 @@ VOLUME /notebooks
 ENTRYPOINT /usr/local/bin/jupyter-notebook --no-browser --ip=0.0.0.0 --notebook-dir=/notebooks --allow-root  --NotebookApp.token=''
 
 # TensorBoard
-EXPOSE 6006
+#EXPOSE 6006
 # IPython
 EXPOSE 8888
 
