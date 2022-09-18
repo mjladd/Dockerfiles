@@ -31,7 +31,7 @@ RUN pip3 --no-cache-dir install \
     Pillow \
     h5py \
     ipykernel \
-    jupyter \
+    jupyterlab \
     matplotlib \
     numpy \
     pandas \
