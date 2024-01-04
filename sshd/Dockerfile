@@ -1,9 +1,13 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y openssh-server
+RUN apt-get update && apt-get install -y openssh-server supervisor
+
+# setup sshd
 RUN mkdir /var/run/sshd
-RUN mkdir /.ssh
-COPY hightouch_ed25519.pub   /.ssh/authorized_keys
+RUN mkdir -p /root/.ssh
+RUN chmod 700 /root/.ssh
+COPY hightouch_ed25519.pub   /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's/#Port 22/Port 7822/' /etc/ssh/sshd_config
 
@@ -16,5 +20,10 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 #ENV NOTVISIBLE "in users profile"
 #RUN echo "export VISIBLE=now" >> /etc/profile
 
+# setup supervisord
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 EXPOSE 7822
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/bin/supervisord"]
