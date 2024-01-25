@@ -159,7 +159,6 @@ ssh -N -f -R 3000:127.0.0.1:8080 mladd@gateway.pub
 
 - -R : specifies that connectionns to the given TCP port on the remote side are forwared to the local side
 
-
 ![Remote Port Forwarding](images/ssh_remote_forwarding.png)
 
 ### Remote Port Forwarding with Bastion
@@ -181,7 +180,7 @@ ssh -f -N -R remote_address:remote_port:local_address:local_port username@gatewa
 - rather than the traditional connection from a local machine to a remote server, reverse SSH tunneling establishes a connection from the remote server to the local machine
 - used to gain access to a local machine that is behind a firewall or NAT
 - reverse tunneling sets up an omnidirectional connection between a port on a local machine and a port on a remote machine
-  - the established connection is used to setup a _new_ connection from the local machine back to the remote instance
+  - the established connection is used to setup a _new* connection from the local machine back to the remote instance
   - the end state is that you can connect the local machine to the remote instance, so the tunnel (in reverse) allows the remote instance to connect to the local machine
 
 ```shell
