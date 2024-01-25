@@ -1,6 +1,6 @@
 # Dockerize SSHD daemon for ssh tunnel
 
-## Backgroud
+## Background
 
 ### What is SSH Tunneling / Port Forwarding
 
@@ -221,7 +221,7 @@ kill PID
 - this client server must be able to connect to the public internet and the DWH (redshift)
 - when setting up the reverse tunnel in Hightouch, you will receive a private key to download
 - ensure key permissions are 0400
-- ensure this host key is included to the ~/.ssh/know_hosts file
+- ensure this host key is included to the ~/.ssh/known_hosts file
   - `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCXjpH+c24rYGDBoUdHGN3Yazp4SrDU8Z0Oqb0WRaKJz0VpSPS+Kqmc0MioY3yK1aPDh32VSEFUykEHIobV7dsH9uKlR3OllTkxN9pIk3xfJBn1/x4TS2VX1I+XM7KE6xJH/QmBVaVyNzsYzZ+lR/hUdrVC3czV+ReJa5j+YS23atS3x9NznxHSBBOLcq0RpFj65/WZt0kJwbIqhrGYIq5qXR/8d7gzyCj6vg2iNNUszTFQvcFeQ8zeXC63ke4C9oCFHbneX2odvsDY5DQM6WF7H6j91qRhGEq+niQg2zCns1kJq1Gfa7bY3OxIHmQ3HP0R8ExJMsBBqdKoL5uNY8UK717yNuFzBQUV8fgJi1HZC6JR6uDVpLadbXUV3WD0LA0YQ1h24KKGtPRDrnyZxNTdn0R19asz31npyFHKrP95OIz2RoGuqsn9fr3FzO1wfXjdzYp5l6AAy04K6yPNQfTC/+LLk8U1PWbSsMBqlQnHkp/eMaSdTEVMVxqhAFKCz8M=`
 
 ```shell
